@@ -5,7 +5,8 @@
         'ui.router',
         'ui.bootstrap',
         'angular-loading-bar',
-        'feedsModule'
+        'feedsModule',
+        'imageupload'
     ])
      .run([
             '$rootScope',
@@ -16,7 +17,7 @@
             }])
         .value('globals', {
             rootUrl: window.location.origin + '/',
-            ServiceUrl: window.location.origin + '/api',
+            serviceUrl: window.location.origin + '/api',
         })
     .config([
             '$stateProvider',
@@ -43,4 +44,14 @@
 
                 $urlRouterProvider.otherwise('/accounts/login');
             }])
+   .directive("ngFileSelect", function () {
+       return {
+           link: function ($scope, el) {
+               el.bind("change", function (e) {
+                   $scope.file = (e.srcElement || e.target).files[0];
+                   $scope.getFile();
+               })
+           }
+       }
+   });
 })();

@@ -5,11 +5,13 @@
         .module('feedsModule', [])
         .service('feedsService', feedsService)
         .controller('feedsController', feedsController)
-        .controller('feedsReserveControllerModalCtrl', feedsReserveControllerModalCtrl);
+        .controller('feedsReserveControllerModalCtrl', feedsReserveControllerModalCtrl)
+        .controller('postController', postController)
 
     feedsService.$inject = ['$http', '$q', 'globals'];
     feedsController.$inject = ['$location', 'feedsService', '$modal'];
     feedsReserveControllerModalCtrl.$inject = ['$modalInstance', 'items'];
+    postController.$inject = ['feedsService', '$scope', 'fileReader'];
 
     function feedsService($http, $q, globals) {
         var controllerUrl = globals.serviceUrl + '/Mealvite';
@@ -32,7 +34,17 @@
                 $http({
                     method: 'POST',
                     url: controllerUrl + '/Add',
-                    data: entity
+                    data: entity,
+                    headers: { 'Content-Type': undefined },
+                    transformRequest: function (data) {
+                        var formData = new FormData();
+                        formData.append("entity", angular.toJson(data.entity));
+                        //angular.forEach(data.files, function (file, key) {
+                            formData.append(data.file.name, data.file);
+                        //});
+
+                        return formData;
+                    }
                 }).success(function (data, status, headers, config) {
                     deferred.resolve(data);
                 }).error(function (data, status, headers, config) {
@@ -90,9 +102,7 @@
             vm.alerts.splice(index, 1);
         };
 
-
         vm.open = function () {
-
             var modalInstance = $modal.open({
                 animation: vm.animationsEnabled,
                 templateUrl: 'myModalContent.html',
@@ -145,8 +155,7 @@
     }
 
 
-    function feedsReserveControllerModalCtrl($modalInstance, items)
-    {
+    function feedsReserveControllerModalCtrl($modalInstance, items) {
         var vm = this;
 
         vm.items = items;
@@ -162,5 +171,4 @@
             $modalInstance.dismiss('cancel');
         };
     }
-
 })();

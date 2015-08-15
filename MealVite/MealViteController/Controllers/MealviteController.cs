@@ -1,11 +1,17 @@
 ﻿using MealVite.Core.Interfaces;
 using MealVite.Core.Repository;
 using MealVite.Model;
+using MealViteController.Providers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace MealViteController.Controllers
@@ -44,10 +50,39 @@ namespace MealViteController.Controllers
 
         [Route("Add")]
         [HttpPost]
-        public IHttpActionResult Add(Mealvite entity)
+        public async Task<IHttpActionResult> Add()
         {
+
             try
             {
+                if (!Request.Content.IsMimeMultipartContent())
+                {
+                    throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+                }
+
+                var root = HttpContext.Current.Server.MapPath("~/FileUploads");
+                Directory.CreateDirectory(root);
+                var provider = new PhotoMultipartFormDataStreamProvider(root);
+                var result = await Request.Content.ReadAsMultipartAsync(provider);
+
+                if (result.FormData["entity"] == null)
+                {
+                    throw new HttpResponseException(HttpStatusCode.BadRequest);
+                }
+
+
+                var entity = JsonConvert.DeserializeObject<Mealvite>(result.FormData["entity"]);
+
+                if (result.FileData.Count > 0)
+                {
+                    StringBuilder str = new StringBuilder();
+                    foreach (var item in result.FileData)
+                    {
+                        str.Append(Path.GetFileName(item.LocalFileName));
+                        str.Append(",");
+                    }
+                   // entity.ImagePath = str.ToString();
+                }
                 this.repo.Insert(entity);
 
                 return Ok();

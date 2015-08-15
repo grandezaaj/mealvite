@@ -15,7 +15,7 @@ namespace MealViteController
             string uiBootstrapCdnPath = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js";
             string angularStorageCdnPath = "https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.1.4/angular-local-storage.min.js";
             string bootboxCdnPath = "https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js";
-            string jqueryUICdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js";            
+            string jqueryUICdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js";
             bundles.UseCdn = true;
 
 
@@ -30,6 +30,10 @@ namespace MealViteController
 
             bundles.Add(new ScriptBundle("~/bundles/uiRouter",
                 uiRouterCdnPath).Include("~/app/scripts/angular/angular-ui-router.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/moment",
+                  "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js").
+                  Include("~/app/scripts/moment.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap",
                 bootstrapCdnPath).Include("~/app/scripts/bootstrap/bootstrap.min.js"));
@@ -47,18 +51,23 @@ namespace MealViteController
              .Include("~/app/scripts/angular/loading-bar.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/adminlte")
-           .Include("~/app/components/adminlte/js/app.min.js"));
+             .Include("~/app/components/adminlte/js/app.min.js",
+             "~/app/components/adminlte/js/daterangepicker.js"));
 
-             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/app/app.js",
-                "~/app/pages/mealvite/feeds/feedsModule.js"
-                ));
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+               "~/app/app.js",
+               "~/app/pages/mealvite/post/postController.js",
+               "~/app/pages/mealvite/feeds/feedsModule.js",
+               "~/app/components/helpers/upload.js"
+               ));
 
-             bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/app/css/bootstrap/bootstrap.min.css"));
-             bundles.Add(new StyleBundle("~/Content/fontawesome").Include("~/app/css/fontawesome/css/font-awesome.min.css"));
-             bundles.Add(new StyleBundle("~/Content/loadingbar").Include("~/app/css/loading-bar.min.css"));
-             bundles.Add(new StyleBundle("~/Content/adminlte").Include("~/app/components/adminlte/css/AdminLTE.min.css",
-                 "~/app/components/adminlte/css/skins/skin-yellow-light.min.css"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/app/css/bootstrap/bootstrap.min.css"));
+            bundles.Add(new StyleBundle("~/Content/fontawesome").Include("~/app/css/fontawesome/css/font-awesome.min.css"));
+            bundles.Add(new StyleBundle("~/Content/loadingbar").Include("~/app/css/loading-bar.min.css"));
+            bundles.Add(new StyleBundle("~/Content/adminlte").Include(
+                "~/app/components/adminlte/css/AdminLTE.min.css",
+                "~/app/components/adminlte/css/skins/skin-yellow-light.min.css",
+                "~/app/components/adminlte/css/daterangepicker-bs3.css"));
         }
     }
 }
