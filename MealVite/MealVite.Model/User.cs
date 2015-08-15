@@ -14,33 +14,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MealVite.Model
 {
-    // Profile
-    public partial class Profile
+    // User
+    public partial class User
     {
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public int ProfileId { get; set; } // profile_id (Primary key)
+        public int UseriId { get; set; } // useri_id (Primary key)
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string FirstName { get; set; } // first_name
+        public int? ProfileId { get; set; } // profile_id
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string MiddleName { get; set; } // middle_name
+        public string Username { get; set; } // username
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string LastName { get; set; } // last_name
-
-        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string BusinessName { get; set; } // business_name
-
-        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string FacebookUrl { get; set; } // facebook_url
-
-        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string InstagramUrl { get; set; } // instagram_url
-
-        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public string WebsiteUrl { get; set; } // website_url
+        public string Password { get; set; } // password
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         public DateTime? DateCreated { get; set; } // date_created
@@ -49,19 +37,10 @@ namespace MealVite.Model
         public DateTime? LastDateUpdated { get; set; } // last_date_updated
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public bool? IsDeleted { get; set; } // is_deleted
+        public bool? IsActive { get; set; } // is_active
 
-        // Reverse navigation
-        public virtual ICollection<Mealvite> Mealvites { get; set; } // Mealvite.FK_Mealvite_Profile
-        
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public Profile()
-        {
-            Mealvites = new List<Mealvite>();
-            InitializePartial();
-        }
-
-        partial void InitializePartial();
+        public bool? IsDeleted { get; set; } // is_deleted
     }
 
 }

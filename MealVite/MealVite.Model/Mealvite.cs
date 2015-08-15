@@ -40,7 +40,7 @@ namespace MealVite.Model
         public string Status { get; set; } // Status
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
-        public DateTimeOffset MealViteDate { get; set; } // MealViteDate
+        public string MealViteDate { get; set; } // MealViteDate
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         public string Tags { get; set; } // Tags
@@ -54,8 +54,14 @@ namespace MealVite.Model
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         public bool IsDeleted { get; set; } // IsDeleted
 
+        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
+        public string ImagePath { get; set; } // ImagePath
+
         // Reverse navigation
         public virtual ICollection<MealViteDetail> MealViteDetails { get; set; } // MealViteDetails.FK_MealViteDetails_Mealvite
+
+        // Foreign keys
+        public virtual Profile Profile { get; set; } // FK_Mealvite_Profile
         
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         public Mealvite()

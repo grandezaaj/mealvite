@@ -32,6 +32,9 @@ namespace MealVite.Data
         public IDbSet<Profile> Profiles { get; set; } // Profile
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
+        public IDbSet<User> Users { get; set; } // User
+
+        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         static MealViteDbContext()
         {
             Database.SetInitializer<MealViteDbContext>(null);
@@ -64,6 +67,7 @@ namespace MealVite.Data
             modelBuilder.Configurations.Add(new MealviteConfiguration());
             modelBuilder.Configurations.Add(new MealViteDetailConfiguration());
             modelBuilder.Configurations.Add(new ProfileConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
 
             OnModelCreatingPartial(modelBuilder);
         }
@@ -74,6 +78,7 @@ namespace MealVite.Data
             modelBuilder.Configurations.Add(new MealviteConfiguration(schema));
             modelBuilder.Configurations.Add(new MealViteDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new ProfileConfiguration(schema));
+            modelBuilder.Configurations.Add(new UserConfiguration(schema));
             return modelBuilder;
         }
 

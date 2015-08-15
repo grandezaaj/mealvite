@@ -25,6 +25,7 @@ namespace MealVite.Data
         IDbSet<Mealvite> Mealvites { get; set; } // Mealvite
         IDbSet<MealViteDetail> MealViteDetails { get; set; } // MealViteDetails
         IDbSet<Profile> Profiles { get; set; } // Profile
+        IDbSet<User> Users { get; set; } // User
 
         int SaveChanges();
         

@@ -10,6 +10,7 @@ function postController(feedsService, $scope, fileReader) {
         fileReader.readAsDataUrl($scope.file, $scope)
                       .then(function (result) {
                           $scope.imageSrc = result;
+                          $('#submit').prop('disabled', false);
                       });
     };
 

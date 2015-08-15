@@ -127,28 +127,9 @@
         };
 
         function init() {
-            //feedsService.getAll().then(function (data) {
-            //    vm.list = data;
-            //});
-
-            // TODO: sample data
-            var data = [
-                {
-                    title: 'Carribean Cruise Dinner Course',
-                    description: 'Appetizer is lorem ipsum mother fucker',
-                    host: 'Jan Patrick Sacay',
-                    location: 'El Rio Phase 69, Davao City',
-                    price: '200'
-                },
-                {
-                    title: 'Chinese ',
-                    description: 'Appetizer is lorem ipsum mother fucker 2',
-                    host: 'Eric Bonga',
-                    location: 'Country side Bangkal, Davao City',
-                    price: '350'
-                }
-            ];
-            vm.list = data;
+            feedsService.getAll().then(function (data) {
+                vm.list = data;
+            });          
         }
 
         init();

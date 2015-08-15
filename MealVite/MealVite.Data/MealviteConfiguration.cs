@@ -35,12 +35,16 @@ namespace MealVite.Data
             Property(x => x.Price).HasColumnName("Price").IsRequired().HasPrecision(18,2);
             Property(x => x.Location).HasColumnName("Location").IsRequired();
             Property(x => x.Description).HasColumnName("Description").IsOptional();
-            Property(x => x.Status).HasColumnName("Status").IsRequired().IsUnicode(false).HasMaxLength(50);
+            Property(x => x.Status).HasColumnName("Status").IsOptional().IsUnicode(false).HasMaxLength(50);
             Property(x => x.MealViteDate).HasColumnName("MealViteDate").IsRequired();
             Property(x => x.Tags).HasColumnName("Tags").IsOptional();
             Property(x => x.DateCreated).HasColumnName("DateCreated").IsRequired();
             Property(x => x.LastDateUpdated).HasColumnName("LastDateUpdated").IsRequired();
             Property(x => x.IsDeleted).HasColumnName("IsDeleted").IsRequired();
+            Property(x => x.ImagePath).HasColumnName("ImagePath").IsOptional();
+
+            // Foreign keys
+            HasRequired(a => a.Profile).WithMany(b => b.Mealvites).HasForeignKey(c => c.HostId); // FK_Mealvite_Profile
             InitializePartial();
         }
         partial void InitializePartial();
