@@ -83,7 +83,7 @@
         var vm = this;
         vm.alerts = [];
         vm.list = [];
-        vm.template = "";
+        vm.template = "app/pages/mealvite/feeds/feedTemplate.html";
         vm.closeAlert = function (index) {
             vm.alerts.splice(index, 1);
         };
