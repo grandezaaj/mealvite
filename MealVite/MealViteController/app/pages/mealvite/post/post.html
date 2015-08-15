@@ -1,4 +1,5 @@
-﻿<div class="container" ng-controller="postController as c">
+﻿<link href="/app/pages/mealvite/post/post.css" rel="stylesheet" />
+<div class="container" ng-controller="postController as c">
     <div class="row">
         <div>
             <h3>Invite people for a meal!</h3>
@@ -43,9 +44,10 @@
             <div class="row">
                 <div class="input-group">
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-info">Upload</button>
+                        <button type="button" class="btn btn-info" id="getImageFile">Upload</button>
                     </div><!-- /btn-group -->
-                    <input type="text" class="form-control">
+                    <input type="file" id="imageFile">
+                    <div id="customfileupload" class="form-control">Select a file</div>
                 </div>
             </div>
 
@@ -66,9 +68,24 @@
             <br />
 
             <div class="row">
-                <br />
+                <div class="form-group">
+                    <button style="width:100px;" type="submit" class="btn btn-primary">Post</button>
+                </div>
             </div>
 
         </div>
     </div>   
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        document.getElementById('getImageFile').onclick = function () {
+            document.getElementById('imageFile').click();
+        };
+
+        $('input[type=file]').change(function (e) {
+            $('#customfileupload').html($(this).val());
+        });
+
+    });
+</script>
