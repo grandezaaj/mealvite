@@ -214,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\assets\images\loginbg80.jpg" />
+    <Content Include="app\assets\images\loginbg85.jpg" />
+    <Content Include="app\assets\images\loginbg90.jpg" />
     <Content Include="app\assets\images\post1.jpg" />
     <Content Include="app\assets\images\final2_long.png" />
     <Content Include="app\assets\images\loginbg.jpg" />
@@ -288,6 +291,7 @@
     <Content Include="app\pages\accounts\profile\profile.html" />
     <Content Include="app\pages\mealvite\feeds\feeds.html" />
     <Content Include="app\pages\mealvite\feeds\feedsModule.js" />
+    <Content Include="app\pages\mealvite\post\post.html" />
     <Content Include="app\scripts\angular\angular-local-storage.min.js" />
     <Content Include="app\scripts\angular\angular-sanitize.js" />
     <Content Include="app\scripts\angular\angular-ui-router.min.js" />
