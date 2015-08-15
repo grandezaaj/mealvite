@@ -40,6 +40,7 @@ namespace MealVite.Data
             Property(x => x.Tags).HasColumnName("Tags").IsOptional();
             Property(x => x.DateCreated).HasColumnName("DateCreated").IsRequired();
             Property(x => x.LastDateUpdated).HasColumnName("LastDateUpdated").IsRequired();
+            Property(x => x.IsDeleted).HasColumnName("IsDeleted").IsRequired();
             InitializePartial();
         }
         partial void InitializePartial();
