@@ -66,9 +66,6 @@
     <Compile Include="MealViteDetailConfiguration.cs">
       <DependentUpon>MealViteDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProfileConfiguration.cs">
-      <DependentUpon>MealViteDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
