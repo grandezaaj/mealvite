@@ -58,9 +58,10 @@ namespace MealVite.Core.Repository
             this.Update(entity);
         }
 
-        public void Reserve(int mealViteId, int userId)
+        public void Reserve(MealViteDetail MealViteDetails )
         {
-            throw new NotImplementedException();
+            this.ctx.MealViteDetails.Add(MealViteDetails);
+                this.Save();
         }
 
         private void Save()

@@ -10,14 +10,15 @@ using System.Web.Http;
 
 namespace MealViteController.Controllers
 {
-    [RoutePrefix("api/Profile")]
-    public class ProfilesController : ApiController
+    [RoutePrefix("api/MealViteDetail")]
+    public class MealViteDetailsController : ApiController
     {
-        private IProfile repo;
 
-        public ProfilesController() 
+        private IMealViteDetails repo;
+
+        public MealViteDetailsController() 
         {
-            this.repo = new ProfileRepository();
+            this.repo = new MealViteDetailRepository();
         }
 
         [Route("List")]
@@ -36,7 +37,7 @@ namespace MealViteController.Controllers
 
             if (item == null)
             {
-                return BadRequest("Unable to find Profile.");
+                return BadRequest("Unable to find MealViteDetails.");
             }
 
             return Ok(item);
@@ -44,7 +45,7 @@ namespace MealViteController.Controllers
 
         [Route("Add")]
         [HttpPost]
-        public IHttpActionResult Add(Profile entity)
+        public IHttpActionResult Add(MealViteDetail entity)
         {
             try
             {
@@ -60,7 +61,7 @@ namespace MealViteController.Controllers
 
         [Route("Update")]
         [HttpPut]
-        public IHttpActionResult Update(Profile entity)
+        public IHttpActionResult Update(MealViteDetail entity)
         {
             try
             {
@@ -91,6 +92,5 @@ namespace MealViteController.Controllers
             }
         }
       
-
     }
 }

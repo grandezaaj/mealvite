@@ -35,6 +35,7 @@ namespace MealVite.Data
             Property(x => x.Status).HasColumnName("Status").IsOptional().IsUnicode(false).HasMaxLength(50);
             Property(x => x.Comment).HasColumnName("Comment").IsOptional();
             Property(x => x.Rating).HasColumnName("Rating").IsOptional();
+            Property(x => x.IsDeleted).HasColumnName("IsDeleted").IsOptional();
 
             // Foreign keys
             HasRequired(a => a.Mealvite).WithMany(b => b.MealViteDetails).HasForeignKey(c => c.MealviteId); // FK_MealViteDetails_Mealvite
