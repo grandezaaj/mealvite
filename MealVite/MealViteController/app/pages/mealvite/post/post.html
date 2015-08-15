@@ -1,4 +1,5 @@
-﻿<div class="container">
+﻿<link href="/app/pages/mealvite/post/post.css" rel="stylesheet" />
+<div class="container">
     <div class="row">
         <div>
             <label>Post A Mealvite</label>
@@ -41,9 +42,10 @@
         <div class="row">
             <div class="input-group">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-info">Upload</button>
+                    <button type="button" id="getImageFile" class="btn btn-info">Upload</button>
                 </div><!-- /btn-group -->
-                <input type="text" class="form-control">
+                <input type="file" id="imageFile" class="form-control">
+                <div id="customfileupload" class="form-control">Select a file</div>
             </div>
         </div>
 
@@ -61,11 +63,27 @@
                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
             </div>
         </div>
-        <br />
 
         <div class="row">
-            <br />
+            <div class="form-group">
+                <button style="width:140px;"type="submit" class="btn btn-primary">Post</button>
+            </div>
         </div>
 
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+
+        document.getElementById('getImageFile').onclick = function () {
+            document.getElementById('imageFile').click();
+        };
+
+        $('input[type=file]').change(function (e) {
+            $('#customfileupload').html($(this).val());
+        });
+
+    });
+
+</script>
