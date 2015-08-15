@@ -15,8 +15,7 @@ namespace MealViteController
             string uiBootstrapCdnPath = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js";
             string angularStorageCdnPath = "https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.1.4/angular-local-storage.min.js";
             string bootboxCdnPath = "https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js";
-            string jqueryUICdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js";
-            string angularSanitizeCdnPath = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-sanitize.js";
+            string jqueryUICdnPath = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js";            
             bundles.UseCdn = true;
 
 
@@ -46,6 +45,9 @@ namespace MealViteController
 
             bundles.Add(new ScriptBundle("~/bundles/loadingbar")
              .Include("~/app/scripts/angular/loading-bar.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminlte")
+           .Include("~/app/components/adminlte/js/app.min.js"));
 
              bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/app/app.js"

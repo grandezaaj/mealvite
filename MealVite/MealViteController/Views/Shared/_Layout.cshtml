@@ -2,18 +2,17 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>MealVite</title>
     @System.Web.Optimization.Styles.Render("~/Content/bootstrap")
     @System.Web.Optimization.Styles.Render("~/Content/fontawesome")
     @System.Web.Optimization.Styles.Render("~/Content/loadingbar")
     @System.Web.Optimization.Styles.Render("~/Content/adminlte")
 </head>
-<body style="padding-top: 70px; font-family: sans-serif !important">
+<body>
     @*<div ng-include src="'app/components/header/header.html'"></div>*@
     <div class="container-fluid">
         @RenderBody()
-        <hr />
         @*<footer>
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </footer>*@
@@ -28,6 +27,7 @@
     @System.Web.Optimization.Scripts.Render("~/bundles/angularStorage")
     @System.Web.Optimization.Scripts.Render("~/bundles/bootbox")    
     @System.Web.Optimization.Scripts.Render("~/bundles/loadingbar")
+    @System.Web.Optimization.Scripts.Render("~/bundles/adminlte")
     @System.Web.Optimization.Scripts.Render("~/bundles/app")
 </body>
 </html>

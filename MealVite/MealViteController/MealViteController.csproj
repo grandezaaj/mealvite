@@ -213,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\assets\images\post1.jpg" />
+    <Content Include="app\assets\images\final2_long.png" />
+    <Content Include="app\assets\images\loginbg.jpg" />
     <Content Include="app\components\adminlte\css\AdminLTE.css" />
     <Content Include="app\components\adminlte\css\AdminLTE.min.css" />
     <Content Include="app\components\adminlte\css\skins\skin-black-light.css" />
@@ -279,7 +282,11 @@
     <Content Include="app\css\fontawesome\fonts\fontawesome-webfont.svg" />
     <Content Include="app\css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\css\loading-bar.min.css" />
+    <Content Include="app\pages\accounts\login\login.css" />
     <Content Include="app\pages\accounts\login\login.html" />
+    <Content Include="app\pages\accounts\profile\profile.html" />
+    <Content Include="app\pages\feeds\feeds.html" />
+    <Content Include="app\pages\feeds\feedsModule.js" />
     <Content Include="app\scripts\angular\angular-local-storage.min.js" />
     <Content Include="app\scripts\angular\angular-sanitize.js" />
     <Content Include="app\scripts\angular\angular-ui-router.min.js" />
