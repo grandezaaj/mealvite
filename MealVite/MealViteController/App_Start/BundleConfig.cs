@@ -50,7 +50,8 @@ namespace MealViteController
            .Include("~/app/components/adminlte/js/app.min.js"));
 
              bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/app/app.js"
+                "~/app/app.js",
+                "~/app/pages/mealvite/feeds/feedsModule.js"
                 ));
 
              bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/app/css/bootstrap/bootstrap.min.css"));

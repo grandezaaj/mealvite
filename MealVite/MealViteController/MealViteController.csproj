@@ -291,7 +291,6 @@
     <Content Include="app\pages\accounts\profile\profile.html" />
     <Content Include="app\pages\mealvite\feeds\feeds.html" />
     <Content Include="app\pages\mealvite\feeds\feedsModule.js" />
-    <Content Include="app\pages\mealvite\post\post.html" />
     <Content Include="app\scripts\angular\angular-local-storage.min.js" />
     <Content Include="app\scripts\angular\angular-sanitize.js" />
     <Content Include="app\scripts\angular\angular-ui-router.min.js" />

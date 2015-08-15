@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('feedsModule')
+        .module('feedsModule', [])
         .service('feedsService', feedsService)
         .controller('feedsController', feedsController);
 
@@ -83,6 +83,10 @@
         var vm = this;
         vm.alerts = [];
         vm.list = [];
+        vm.template = "app/pages/mealvite/feeds/feedTemplate.html";
+        vm.closeAlert = function (index) {
+            vm.alerts.splice(index, 1);
+        };
 
         function init() {
             //feedsService.getAll().then(function (data) {
@@ -100,12 +104,13 @@
                 },
                 {
                     title: 'Chinese ',
-                    description: 'Appetizer is lorem ipsum mother fucker',
-                    host: 'Jan Patrick Sacay',
-                    location: 'El Rio Phase 69, Davao City'
+                    description: 'Appetizer is lorem ipsum mother fucker 2',
+                    host: 'Eric Bonga',
+                    location: 'Country side Bangkal, Davao City',
+                    price: '350'
                 }
             ];
-
+            vm.list = data;
         }
 
         init();
