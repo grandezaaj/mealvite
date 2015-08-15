@@ -36,7 +36,7 @@ namespace MealViteController.Controllers
 
             if (item == null)
             {
-                return BadRequest("Unable to find MealVite.");
+                return BadRequest("Unable to find Profile.");
             }
 
             return Ok(item);
