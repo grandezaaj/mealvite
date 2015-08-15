@@ -10,7 +10,7 @@ namespace MealVite.Core.Interfaces
 {
     public interface IMealVite : IRepository<Mealvite>
     {
-        void Reserve(int mealviteId, int userId);
+        void Reserve(MealViteDetail mvd);
         void CancelReservation(int mealviteId, int userId);
         void CancelMealvite(int mealviteId, int userId);
         double MealviteTotal(int mealviteId);
