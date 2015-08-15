@@ -62,6 +62,42 @@ namespace MealVite.Core.Repository
             this.ctx.SaveChanges();
         }
 
+        public void Reserve(int mealviteId, int userId)
+        {
+            throw new NotFiniteNumberException();
+        }
+
+        public void CancelReservation(int mealviteId, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CancelMealvite(int mealviteId, int userId, string reason)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoveMealvite(int mealviteId, int userId, DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RateAndComment(int mealviteId, int userId, int rate, string comment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double CalculateTotal(int mealviteId)
+        {
+            return 1.0;
+        }
+
+        public int GetAtendeesCount(int mealviteId)
+        {
+            return 1;
+        }
+
+
 
         protected virtual void Dispose(bool disposing)
         {
