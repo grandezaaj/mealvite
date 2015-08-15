@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MealVite.Core.Interfaces
 {
-    class IProfile : IRepository<IProfile>
+    public interface IProfile : IRepository<Profile>
     {
 
     }
