@@ -4,10 +4,12 @@
     angular
         .module('feedsModule', [])
         .service('feedsService', feedsService)
-        .controller('feedsController', feedsController);
+        .controller('feedsController', feedsController)
+        .controller('feedsReserveControllerModalCtrl', feedsReserveControllerModalCtrl);
 
     feedsService.$inject = ['$http', '$q', 'globals'];
-    feedsController.$inject = ['$location', 'feedsService'];
+    feedsController.$inject = ['$location', 'feedsService', '$modal'];
+    feedsReserveControllerModalCtrl.$inject = ['$modalInstance', 'items'];
 
     function feedsService($http, $q, globals) {
         var controllerUrl = globals.serviceUrl + '/Mealvite';
@@ -78,7 +80,7 @@
         }
     }
 
-    function feedsController($location, feedsService) {
+    function feedsController($location, feedsService, $modal) {
         /* jshint validthis:true */
         var vm = this;
         vm.alerts = [];
@@ -86,6 +88,32 @@
         vm.template = "app/pages/mealvite/feeds/feedTemplate.html";
         vm.closeAlert = function (index) {
             vm.alerts.splice(index, 1);
+        };
+
+
+        vm.open = function () {
+
+            var modalInstance = $modal.open({
+                animation: vm.animationsEnabled,
+                templateUrl: 'myModalContent.html',
+                controller: 'feedsReserveControllerModalCtrl as ct',
+                windowClass: 'app-window-size',
+                resolve: {
+                    items: function () {
+                        return vm.list;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                vm.selected = selectedItem;
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
+
+        vm.toggleAnimation = function () {
+            vm.animationsEnabled = !vm.animationsEnabled;
         };
 
         function init() {
@@ -115,4 +143,24 @@
 
         init();
     }
+
+
+    function feedsReserveControllerModalCtrl($modalInstance, items)
+    {
+        var vm = this;
+
+        vm.items = items;
+        vm.selected = {
+            item: vm.items[0]
+        };
+
+        vm.ok = function () {
+            $modalInstance.close(vm.selected.item);
+        };
+
+        vm.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    }
+
 })();
