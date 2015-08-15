@@ -4,7 +4,8 @@
     angular.module('app', [
         'ui.router',
         'ui.bootstrap',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        'feedsModule'
     ])
      .run([
             '$rootScope',

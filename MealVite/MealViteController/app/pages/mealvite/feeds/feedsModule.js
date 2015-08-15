@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('feedsModule')
+        .module('feedsModule', [])
         .service('feedsService', feedsService)
         .controller('feedsController', feedsController);
 
