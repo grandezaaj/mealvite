@@ -36,6 +36,9 @@ namespace MealVite.Model
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         public int? Rating { get; set; } // Rating
 
+        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
+        public bool? IsDeleted { get; set; } // IsDeleted
+
         // Foreign keys
         public virtual Mealvite Mealvite { get; set; } // FK_MealViteDetails_Mealvite
     }
