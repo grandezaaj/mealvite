@@ -58,13 +58,10 @@ namespace MealVite.Core.Repository
             this.Update(entity);
         }
 
-        public void Reserve(List<MealViteDetail> lst_MealViteDetails )
+        public void Reserve(MealViteDetail MealViteDetails )
         {
-            foreach(MealViteDetail mvd in lst_MealViteDetails)
-            {
-                this.ctx.MealViteDetails.Add(mvd);
+            this.ctx.MealViteDetails.Add(MealViteDetails);
                 this.Save();
-            }
         }
 
         private void Save()
