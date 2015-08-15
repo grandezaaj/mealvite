@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using MealVite.Core.Interfaces;
 
 namespace MealVite.Core.Repository
 {
-    public class MealViteRepository
+    public class MealViteRepository : IMealVite
     {
         private MealViteDbContext ctx;
         private bool disposed = false;
@@ -55,6 +56,11 @@ namespace MealVite.Core.Repository
             entity.IsDeleted = true;
 
             this.Update(entity);
+        }
+
+        public void Reserve(int mealViteId, int userId)
+        {
+            throw new NotImplementedException();
         }
 
         private void Save()
