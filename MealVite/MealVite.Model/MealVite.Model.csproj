@@ -60,6 +60,9 @@
     <Compile Include="MealViteDetail.cs">
       <DependentUpon>MealViteDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Profile.cs">
+      <DependentUpon>MealViteDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
