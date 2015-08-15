@@ -9,13 +9,10 @@
     @System.Web.Optimization.Styles.Render("~/Content/loadingbar")
     @System.Web.Optimization.Styles.Render("~/Content/adminlte")
 </head>
-<body>
-    @*<div ng-include src="'app/components/header/header.html'"></div>*@
+<body class="skin-yellow-light">
+    <div ng-include src="'app/components/header/header.html'" ng-if="location.path() !== '/accounts/login'"></div>
     <div class="container-fluid">
         @RenderBody()
-        @*<footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>*@
     </div>
 
     @System.Web.Optimization.Scripts.Render("~/bundles/jquery")

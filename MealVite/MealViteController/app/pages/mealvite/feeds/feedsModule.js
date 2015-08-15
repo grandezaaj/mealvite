@@ -4,7 +4,7 @@
     angular
         .module('feedsModule', [])
         .service('feedsService', feedsService)
-        .controller('feedsController', feedsController);
+        .controller('feedsController', feedsController)
 
     feedsService.$inject = ['$http', '$q', 'globals'];
     feedsController.$inject = ['$location', 'feedsService'];

@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\assets\images\final2_transparent.png" />
     <Content Include="app\assets\images\loginbg80.jpg" />
     <Content Include="app\assets\images\loginbg85.jpg" />
     <Content Include="app\assets\images\loginbg90.jpg" />
@@ -279,6 +280,7 @@
     <Content Include="app\components\adminlte\js\demo.js" />
     <Content Include="app\components\adminlte\js\pages\dashboard.js" />
     <Content Include="app\components\adminlte\js\pages\dashboard2.js" />
+    <Content Include="app\components\header\header.html" />
     <Content Include="app\css\bootstrap\bootstrap.css" />
     <Content Include="app\css\bootstrap\bootstrap.min.css" />
     <Content Include="app\css\fontawesome\css\font-awesome.css" />
@@ -293,6 +295,7 @@
     <Content Include="app\pages\mealvite\feeds\feedsModule.js" />
     <Content Include="app\pages\mealvite\feeds\feedTemplate.html" />
     <Content Include="app\pages\mealvite\post\post.html" />
+    <Content Include="app\pages\mealvite\post\postController.js" />
     <Content Include="app\scripts\angular\angular-local-storage.min.js" />
     <Content Include="app\scripts\angular\angular-sanitize.js" />
     <Content Include="app\scripts\angular\angular-ui-router.min.js" />
@@ -371,7 +374,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\shared\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
