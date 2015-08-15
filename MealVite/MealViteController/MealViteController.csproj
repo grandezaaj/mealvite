@@ -219,6 +219,7 @@
     <Content Include="app\assets\images\loginbg80.jpg" />
     <Content Include="app\assets\images\loginbg85.jpg" />
     <Content Include="app\assets\images\loginbg90.jpg" />
+    <Content Include="app\assets\images\logoLong.png" />
     <Content Include="app\assets\images\post1.jpg" />
     <Content Include="app\assets\images\final2_long.png" />
     <Content Include="app\assets\images\loginbg.jpg" />
