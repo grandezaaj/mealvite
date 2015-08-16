@@ -10,7 +10,7 @@
 
     feedsService.$inject = ['$http', '$q', 'globals'];
     feedsController.$inject = ['$location', 'feedsService', '$modal'];
-    feedsReserveControllerModalCtrl.$inject = ['$modalInstance', 'items'];
+    feedsReserveControllerModalCtrl.$inject = ['$modalInstance', 'entity', 'feedsService'];
     postController.$inject = ['feedsService', '$scope', 'fileReader'];
 
     function feedsService($http, $q, globals) {
@@ -40,7 +40,7 @@
                         var formData = new FormData();
                         formData.append("entity", angular.toJson(data.entity));
                         //angular.forEach(data.files, function (file, key) {
-                            formData.append(data.file.name, data.file);
+                        formData.append(data.file.name, data.file);
                         //});
 
                         return formData;
@@ -88,6 +88,19 @@
                     deferred.reject(status);
                 });
                 return deferred.promise;
+            },
+            reserve: function (entity) {
+                var deferred = $q.defer();
+                $http({
+                    method: 'POST',
+                    url: controllerUrl + '/Reserve',
+                    data: entity
+                }).success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    deferred.reject(data);
+                });
+                return deferred.promise;
             }
         }
     }
@@ -102,23 +115,22 @@
             vm.alerts.splice(index, 1);
         };
 
-        vm.open = function () {
+        vm.open = function (entity) {
+            //console.log(entity);
             var modalInstance = $modal.open({
                 animation: vm.animationsEnabled,
                 templateUrl: 'myModalContent.html',
                 controller: 'feedsReserveControllerModalCtrl as ct',
                 windowClass: 'app-window-size',
                 resolve: {
-                    items: function () {
-                        return vm.list;
+                    entity: function () {
+                        return entity
                     }
                 }
             });
 
             modalInstance.result.then(function (selectedItem) {
                 vm.selected = selectedItem;
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
             });
         };
 
@@ -129,27 +141,36 @@
         function init() {
             feedsService.getAll().then(function (data) {
                 vm.list = data;
-            });          
+            });
         }
 
         init();
     }
 
-
-    function feedsReserveControllerModalCtrl($modalInstance, items) {
+    function feedsReserveControllerModalCtrl($modalInstance, entity, feedsService) {
         var vm = this;
-
-        vm.items = items;
-        vm.selected = {
-            item: vm.items[0]
-        };
-
+        vm.alerts = [];
         vm.ok = function () {
-            $modalInstance.close(vm.selected.item);
+            var data = {
+                mealviteId: entity.mealViteId,
+                customerId: 1002                
+            };
+
+            feedsService.reserve(data).then(function (data) {
+                vm.alerts.push({ type: 'success', msg: 'Success!' });
+            }, function (error) {
+                vm.alerts.push({ type: 'danger', msg: error });
+            });
         };
 
         vm.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
+
+        var init = function () {
+            vm.entity = entity;
+        }
+
+        init();
     }
 })();

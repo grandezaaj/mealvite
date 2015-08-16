@@ -12,7 +12,15 @@
 </div>
 <div>
     <script type="text/ng-template" id="myModalContent.html">
+        
         <div class="row" ng-controller="feedsController">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="alerts">
+                        <alert ng-repeat="alert in ct.alerts" type="{{alert.type}}" close="ct.closeAlert($index)">{{alert.msg}}</alert>
+                    </div>
+                </div>
+            </div>s
             <div class="col-md-12">
                 <div class="box box-warning">
                     <div class="box-header with-border">
@@ -22,16 +30,16 @@
                         <form role="form">
                             <!-- text input -->
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Title Here..">
+                                <input disabled type="text" ng-model="ct.entity.title" class="form-control" placeholder="Title Here..">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Location Here..">
+                                <input disabled type="text" ng-model="ct.entity.location" class="form-control" placeholder="Location Here..">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Date of Mealvite">
+                                <input disabled type="text" ng-model="ct.entity.mealViteDate" class="form-control" placeholder="Date of Mealvite">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Payment Here..">
+                                <input disabled type="number" ng-model="ct.entity.price" class="form-control" placeholder="Payment Here..">
                             </div>
                         </form>
                     </div><!-- /.box-body -->

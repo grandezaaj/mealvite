@@ -34,6 +34,7 @@ namespace MealViteController.Controllers
             var list = this.repo.GetAll();
             var items = list.Select(s => new
                 {
+                    MealViteId = s.MealviteId,
                     Title = s.Title,
                     Price = s.Price,
                     Location = s.Location,
@@ -132,6 +133,23 @@ namespace MealViteController.Controllers
             try
             {
                 this.repo.Update(entity);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return InternalServerError(ex);
+            }
+        }        
+
+        [Route("Reserve")]
+        [HttpPost]
+        public IHttpActionResult Reserve(MealViteDetail entity)
+        {
+            try
+            {
+                this.repo.Reserve(entity);
 
                 return Ok();
             }
