@@ -150,6 +150,11 @@
     function feedsReserveControllerModalCtrl($modalInstance, entity, feedsService) {
         var vm = this;
         vm.alerts = [];
+
+        vm.closeAlert = function (index) {
+            vm.alerts.splice(index, 1);
+        }
+
         vm.ok = function () {
             var data = {
                 mealviteId: entity.mealViteId,

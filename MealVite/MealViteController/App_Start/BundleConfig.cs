@@ -58,7 +58,8 @@ namespace MealViteController
                "~/app/app.js",
                "~/app/pages/mealvite/post/postController.js",
                "~/app/pages/mealvite/feeds/feedsModule.js",
-               "~/app/components/helpers/upload.js"
+               "~/app/components/helpers/upload.js",
+               "~/app/pages/accounts/profile/profileModule.js"
                ));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/app/css/bootstrap/bootstrap.min.css"));

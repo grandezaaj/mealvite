@@ -6,7 +6,8 @@
         'ui.bootstrap',
         'angular-loading-bar',
         'feedsModule',
-        'imageupload'
+        'imageupload',
+        'profileModule'
     ])
      .run([
             '$rootScope',
@@ -41,6 +42,13 @@
                             return 'app/pages/' + $stateParams.pageName + '/' + $stateParams.subpageName + '/' + $stateParams.subpageName + '.html';
                         }
                     })
+
+                 .state('find', {
+                     url: '/:pageName/:subpageName/:id',
+                     templateUrl: function ($stateParams) {
+                         return 'app/pages/' + $stateParams.pageName + '/' + $stateParams.subpageName + '/' + $stateParams.subpageName + '.html';
+                     }
+                 })
 
                 $urlRouterProvider.otherwise('/accounts/login');
             }])

@@ -296,6 +296,7 @@
     <Content Include="app\pages\accounts\login\login.css" />
     <Content Include="app\pages\accounts\login\login.html" />
     <Content Include="app\pages\accounts\profile\profile.html" />
+    <Content Include="app\pages\accounts\profile\profileModule.js" />
     <Content Include="app\pages\mealvite\feeds\feeds.html" />
     <Content Include="app\pages\mealvite\feeds\feedsModule.js" />
     <Content Include="app\pages\mealvite\feeds\feedTemplate.html" />

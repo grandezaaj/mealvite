@@ -1,4 +1,4 @@
-﻿<div class="container" style="padding-top: 1%">
+﻿<div class="container" style="padding-top: 1%" ng-controller="profileController as c">
     <div class="row">
         <div class="col-md-2 col-md-offset-3">
             <a href="#" class="img-thumbnail">
@@ -7,10 +7,10 @@
         </div>
         <div class="col-md-3" style="text-align: left">
             <h4>
-                <strong>Juan Dela Cruz</strong>
+                <strong>{{c.entity.firstName}} {{c.entity.middleName}} {{c.entity.lastName}}</strong>
             </h4>
             <p>
-                A food blogger at heart but also passionate in cooking food.
+                {{c.entity.businessName}}
             </p>
             <p>
                 Mealtives created: 0
@@ -37,14 +37,14 @@
         <div class="col-md-4 col-md-offset-3">
             <img src="/app//components//adminlte/img/avatar2.png" alt="..." class="direct-chat-img">
             <div class="direct-chat-text">
-                Is this template really for free? That's unbelievable!
+                He cooks very well. Neat, classy and affordable!
             </div>
         </div>
     </div>
-    <br/>
-    <div class="row">
+    <br />
+    <div hidden class="row">
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Post</button>
+            <button hidden type="submit" class="btn btn-primary">Post</button>
         </div>
     </div>
 </div>

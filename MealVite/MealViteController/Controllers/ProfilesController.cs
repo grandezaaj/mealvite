@@ -30,6 +30,7 @@ namespace MealViteController.Controllers
         }
 
         [Route("{id}")]
+        [HttpGet]
         public IHttpActionResult Find(int id)
         {
             var item = this.repo.FindById(id);
