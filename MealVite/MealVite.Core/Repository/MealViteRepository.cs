@@ -25,6 +25,7 @@ namespace MealVite.Core.Repository
         {
             return this.ctx.Mealvites
                 .Include("Profile")
+                .Include("MealViteDetails")
                 .Where(e => e.IsDeleted == false).ToList();
         }
 
