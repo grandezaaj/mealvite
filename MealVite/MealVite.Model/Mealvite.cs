@@ -46,6 +46,9 @@ namespace MealVite.Model
         public string Tags { get; set; } // Tags
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
+        public int? MaxAttendees { get; set; } // MaxAttendees
+
+        [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]
         public DateTimeOffset DateCreated { get; set; } // DateCreated
 
         [GeneratedCodeAttribute("EF.Reverse.POCO.Generator", "1.0.0.0")]

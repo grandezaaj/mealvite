@@ -38,6 +38,7 @@ namespace MealVite.Data
             Property(x => x.Status).HasColumnName("Status").IsOptional().IsUnicode(false).HasMaxLength(50);
             Property(x => x.MealViteDate).HasColumnName("MealViteDate").IsRequired();
             Property(x => x.Tags).HasColumnName("Tags").IsOptional();
+            Property(x => x.MaxAttendees).HasColumnName("MaxAttendees").IsOptional();
             Property(x => x.DateCreated).HasColumnName("DateCreated").IsRequired();
             Property(x => x.LastDateUpdated).HasColumnName("LastDateUpdated").IsRequired();
             Property(x => x.IsDeleted).HasColumnName("IsDeleted").IsRequired();
